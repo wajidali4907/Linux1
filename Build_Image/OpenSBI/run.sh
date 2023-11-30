@@ -17,7 +17,7 @@ cp ../../linux_6/linux-6.1/vmlinux .
 # cd opensbi
 $OBJCOPY -O binary -R .note -R .comment -S ./vmlinux Image  #  u-boot
 make -C opensbi distclean
-make -C opensbi FW_PAYLOAD_PATH=../Image PLATFORM=generic CROSS_COMPILE=$TOOLCHAIN_PREFIX PLATFORM_RISCV_ISA=rv32ima PLATFORM_RISCV_XLEN=32
+make -C opensbi FW_PAYLOAD_PATH=../Image PLATFORM=generic CROSS_COMPILE=$TOOLCHAIN_PREFIX PLATFORM_RISCV_ISA=rv32ima_zicsr_zifencei PLATFORM_RISCV_XLEN=32
 
 cp ./opensbi/build/platform/generic/firmware/fw_payload.elf .
 #cp ./opensbi/build/platform/fpga/ariane/firmware/fw_payload.elf .
